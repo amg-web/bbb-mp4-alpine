@@ -48,8 +48,16 @@ ENV CHROME_BIN=/usr/bin/chromium-browser \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium-browser
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install
+#copy all files from bbb-mp4 project
+COPY *.sh *.js *.json ./
+#COPY package.json package-lock.json ./
 
-# Autorun chrome headless
-ENTRYPOINT ["chromium-browser", "--headless", "--use-gl=swiftshader", "--disable-software-rasterizer", "--disable-dev-shm-usage"]
+#Install npm scripts
+RUN npm install npm@latest -g && npm install
+
+#Initialize ENV
+ENV REC_URL=" "
+
+# Command that will execute when container starts
+ENTRYPOINT ["sh","docker-entrypoint.sh"]
+CMD node /usr/src/app/bbb-mp4.js $REC_URL
