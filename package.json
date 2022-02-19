@@ -1,0 +1,32 @@
+{
+  "name": "bbb-mp4-alpine",
+  "version": "1.0.0",
+  "description": "Capture BBB recording from browser's window and save as mp4 video file",
+  "main": "node bbb-mp4.js \"https://BBB_HOST/playback/presentation/2.3/MEETING_ID?meetingId=MEETING_ID\"",
+  "scripts": {
+    "test": "node bbb-mp4.js \"https://BBB_HOST/playback/presentation/2.3/MEETING_ID?meetingId=MEETING_ID\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amg-web/bbb-mp4-alpine.git"
+  },
+  "keywords": [
+    "bigbluebutton",
+    "mp4",
+    "alpine"
+  ],
+  "author": "Andtey Gangan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amg-web/bbb-mp4-alpine/issues"
+  },
+  "homepage": "https://github.com/amg-web/bbb-mp4-alpine#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "puppeteer": "^13.3.2",
+    "ws": "^8.5.0",
+    "xhr2": "^0.2.1",
+    "xmlhttprequest": "^1.8.0",
+    "xvfb": "^0.4.0"
+  }
+}
