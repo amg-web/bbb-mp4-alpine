@@ -120,8 +120,8 @@ async function main() {
     } catch (err) {
         console.log(err)
     } finally {
-        page.close && await page.close()
-        browser.close && await browser.close()
+        await page.close()
+        await browser.close()
             // Stop xvfb after browser close
         xvfb.stopSync()
     }

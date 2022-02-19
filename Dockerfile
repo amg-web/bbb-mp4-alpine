@@ -16,6 +16,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # Installs latest Chromium package.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
     && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk upgrade -U -a \
     && apk add \
     libstdc++ \
@@ -27,8 +28,10 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     ttf-freefont \
     font-noto-emoji \
     wqy-zenhei \
-    tini make gcc g++ python3 nodejs nodejs-npm \
-    alsa-utils alsa-oss pulseaudio pulseaudio-utils \
+    ca-certificates \
+    tini make gcc g++ python3 nodejs npm \
+    alsa-utils alsa-lib alsaconf alsa-ucm-conf \
+    pulseaudio-alsa pulseaudio pulseaudio-utils \
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
 
@@ -49,15 +52,15 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium-browser
 WORKDIR /usr/src/app
 #copy all files from bbb-mp4 project
-COPY *.sh *.js *.json ./
+COPY *.sh *.js ./
 #COPY package.json package-lock.json ./
 
 #Install npm scripts
-RUN npm install npm@latest -g && npm install
+RUN npm install npm@latest -g && npm init -y && npm i puppeteer@13.1 ws xhr2 xmlhttprequest xvfb 
 
 #Initialize ENV
 ENV REC_URL=" "
 
 # Command that will execute when container starts
 ENTRYPOINT ["sh","docker-entrypoint.sh"]
-CMD node /usr/src/app/bbb-mp4.js $REC_URL
+CMD node /usr/src/app/mp4.js $REC_URL
