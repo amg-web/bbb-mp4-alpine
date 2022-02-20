@@ -47,7 +47,7 @@ async function main() {
         // set duration to 0 
         var duration = 0
 
-        browser = await puppeteer.launch(options)
+        const browser = await puppeteer.launch(options)
         const pages = await browser.pages()
 
         page = pages[0]
@@ -119,8 +119,8 @@ async function main() {
     } catch (err) {
         console.log(err)
     } finally {
-        await page.close()
-        await browser.close()
+        page.close && await page.close()
+        browser.close && await browser.close()
             // Stop xvfb after browser close
         xvfb.stopSync()
     }
