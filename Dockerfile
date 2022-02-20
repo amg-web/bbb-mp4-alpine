@@ -54,7 +54,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
 ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium-browser
 WORKDIR /usr/src/app
 #copy all files from bbb-mp4 project
-COPY manifest.json mp4.js *.sh ./
+COPY manifest.json index.js *.sh ./
 #COPY package.json package-lock.json ./
 
 # Install npm scripts puppeteer@13.1.0 for chromium 98
@@ -66,4 +66,4 @@ ENV REC_URL=" "
 
 # Command that will execute when container starts
 ENTRYPOINT ["sh","docker-entrypoint.sh"]
-CMD node /usr/src/app/mp4.js $REC_URL
+CMD node /usr/src/app/index.js $REC_URL
