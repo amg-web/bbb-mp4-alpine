@@ -33,7 +33,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/reposito
     ca-certificates \
     tini make gcc g++ python3 \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
-    pulseaudio-alsa pulseaudio pulseaudio-utils \
+    pulseaudio-alsa pulseaudio pulseaudio-utils alsa-plugins-pulse \
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
 
