@@ -27,6 +27,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/reposito
     freetype \
     ttf-freefont \
     font-noto-emoji \
+    gtk+3.0 \
     wqy-zenhei nodejs npm \
     ca-certificates \
     tini make gcc g++ python3 \
