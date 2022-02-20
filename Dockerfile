@@ -27,7 +27,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     font-noto-emoji \
     wqy-zenhei nodejs npm \
     ca-certificates \
- #   tini make gcc g++ python3  \
+    tini make gcc g++ python3 \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
     pulseaudio-alsa pulseaudio pulseaudio-utils \
     && rm -rf /var/cache/* \
