@@ -14,9 +14,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.version="latest"
 
 # Installs latest Chromium package.
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/repositories \
     && apk upgrade -U -a \
     && apk add \
     libstdc++ \
@@ -27,9 +25,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     freetype \
     ttf-freefont \
     font-noto-emoji \
-    wqy-zenhei \
+    wqy-zenhei nodejs npm \
     ca-certificates \
-    tini make gcc g++ python3 nodejs npm \
+ #   tini make gcc g++ python3  \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
     pulseaudio-alsa pulseaudio pulseaudio-utils \
     && rm -rf /var/cache/* \
@@ -55,8 +53,9 @@ WORKDIR /usr/src/app
 COPY *.sh *.js ./
 #COPY package.json package-lock.json ./
 
-#Install npm scripts
-RUN npm install npm@latest -g && npm init -y && npm i puppeteer@13.1 ws xhr2 xmlhttprequest xvfb 
+# Install npm scripts puppeteer@10.2.0 for chromium 93
+# https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteer-vs-puppeteer-core
+RUN npm install npm@latest -g && npm init -y && npm i puppeteer@10.2.0 ws xhr2 xmlhttprequest xvfb 
 
 #Initialize ENV
 ENV REC_URL=" "
