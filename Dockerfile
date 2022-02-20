@@ -14,7 +14,9 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.version="latest"
 
 # Installs latest Chromium package.
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/repositories \
+    echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+    echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
     && apk upgrade -U -a \
     && apk add \
     libstdc++ \
@@ -55,7 +57,7 @@ COPY *.sh *.js ./
 
 # Install npm scripts puppeteer@10.2.0 for chromium 93
 # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteer-vs-puppeteer-core
-RUN npm install npm@latest -g && npm init -y && npm i puppeteer@10.2.0 ws xhr2 xmlhttprequest xvfb 
+RUN npm install npm@latest -g && npm init -y && npm i puppeteer@10.2 ws xhr2 xmlhttprequest xvfb 
 
 #Initialize ENV
 ENV REC_URL=" "
