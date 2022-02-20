@@ -55,9 +55,9 @@ WORKDIR /usr/src/app
 COPY *.sh *.js ./
 #COPY package.json package-lock.json ./
 
-# Install npm scripts puppeteer@10.2.0 for chromium 93
+# Install npm scripts puppeteer@13.1.0 for chromium 98
 # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteer-vs-puppeteer-core
-RUN npm install npm@latest -g && npm init -y && npm i puppeteer@10.2 ws xhr2 xmlhttprequest xvfb 
+RUN npm install npm@latest -g && npm init -y && npm i puppeteer@13.1 ws xhr2 xmlhttprequest xvfb 
 
 #Initialize ENV
 ENV REC_URL=" "
