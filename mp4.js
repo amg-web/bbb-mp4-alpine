@@ -54,7 +54,7 @@ async function main() {
 
         page.on('console', msg => {
             var m = msg.text();
-//          console.log('PAGE LOG:', m) 
+            console.log('PAGE LOG:', m) // comment if do not want page messages
         });
 
         await page._client.send('Emulation.clearDeviceMetricsOverride')
