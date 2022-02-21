@@ -18,7 +18,7 @@ var options = {
         '--no-sandbox',
         '--disable-dev-shm-usage',
         '--start-fullscreen',
-        '--app=https://www.google.com/',
+//        '--app=https://www.google.com/',
         `--window-size=1280,800`,
     ],
 }
@@ -95,7 +95,7 @@ async function main() {
         await page.click('button[class=vjs-big-play-button]', { waitUntil: 'domcontentloaded' });
 
         //  Start capturing screen with ffmpeg
-        const ls = child_process.spawn('sh', ['ffmpeg-cmd.sh', ' ',
+        const ls = child_process.spawn('sh', ['ffmpeg-cmd.sh ', ' ',
             `${duration}`, ' ',
             `${exportname}`, ' ',
             `${disp_num}`
@@ -119,11 +119,12 @@ async function main() {
     } catch (err) {
         console.log(err)
     } finally {
-        page.close && await page.close()
-        browser.close && await browser.close()
+        // page.close && await page.close()
+        // browser.close && await browser.close()
             // Stop xvfb after browser close
-        xvfb.stopSync()
+        await browser.close();
+        xvfb.stopSync();
     }
 }
 
-main()
+main();
