@@ -1,7 +1,7 @@
 #!/bin/bash
 
 . /usr/src/app/nsswrapper.sh
-
+rc-service alsa start
 if pulseaudio --check ; then
 	echo "Pulseaudio already running - killing it..."
 	pulseaudio --kill
