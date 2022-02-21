@@ -25,7 +25,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
 
-RUN addgroup root audio
+RUN addgroup root audio && rc-update add alsa
 #addgroup $USER audio
 
 # COPY --from=mwader/static-ffmpeg:5.0 /ffmpeg /usr/local/bin/
