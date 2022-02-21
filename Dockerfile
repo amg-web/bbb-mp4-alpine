@@ -15,7 +15,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     ttf-freefont \
     font-noto-emoji \
     gtk+3.0 \
-    ffmpeg xvidcore opus libogg libvorbis libtheora \
+    ffmpeg xvidcore opus libogg libvorbis libtheora x264 x265 x264-libs x265-libs \
     wqy-zenhei nodejs npm \
     ca-certificates \
 #    tini make gcc g++ python3 \
