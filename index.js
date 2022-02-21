@@ -26,7 +26,7 @@ options.executablePath = "/usr/bin/chromium-browser"
 async function main() {
     let browser, page;
     try {
-        xvfb.startSync()
+        xvfb.startSync();
 
         var url = process.argv[2];
         if (!url) {
@@ -115,12 +115,12 @@ async function main() {
             console.log(`child process exited with code ${code}`);
         });
 
-        await page.waitForTimeout((duration * 1000))
+        await page.waitForTimeout((duration * 1000));
     } catch (err) {
-        console.log(err)
+        console.log(err);
     } finally {
-        // page.close && await page.close()
-        // browser.close && await browser.close()
+        // page.close && await page.close();
+        // browser.close && await browser.close();
             // Stop xvfb after browser close
         await browser.close();
         xvfb.stopSync();
