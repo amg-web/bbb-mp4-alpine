@@ -1,4 +1,7 @@
 #!usr/bin/sh
+
+rc-service alsa start
+
 DURATION=$1
 EXPORT_NAME=$2
 DISPLAY_NUMBER=$3
