@@ -10,7 +10,7 @@ ffmpeg -y -nostats -s 1280x800 \
 #	-probesize 16M \
 	-f x11grab -thread_queue_size 1024 \
 	-i :$DISPLAY_NUMBER \
-	# -f alsa \
+	-f alsa \
 	#-thread_queue_size 1024 \
 	-itsoffset 0.57 \
 	-i pulse -ac 2 \
