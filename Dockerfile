@@ -15,7 +15,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     ttf-freefont \
     font-noto-emoji \
     gtk+3.0 \
-    ffmpeg ffmpeg-libs xvidcore opus libogg libvorbis libtheora x264 x265 x264-libs x265-libs \
+    //  ffmpeg ffmpeg-libs
+    xvidcore opus libogg libvorbis libtheora x264 x265 x264-libs x265-libs \
     wqy-zenhei nodejs npm \
     ca-certificates \
 #    tini make gcc g++ python3 \
@@ -23,6 +24,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     pulseaudio-alsa pulseaudio pulseaudio-utils alsa-plugins-pulse \
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
+    
+COPY --from=mwader/static-ffmpeg:5.0 /ffmpeg /usr/local/bin/
+COPY --from=mwader/static-ffmpeg:5.0 /ffprobe /usr/local/bin/
 
 COPY local.conf /etc/fonts/local.conf
 
