@@ -88,6 +88,7 @@ async function main() {
         console.log(duration)
 
         await page.waitForSelector('button[class=vjs-big-play-button]');
+        await page.screenshot({ path: '/usr/src/app/download/page.png' });
         await page.$eval('.bottom-content', element => element.style.display = "none");
         await page.$eval('.fullscreen-button', element => element.style.opacity = "0");
         await page.$eval('.right', element => element.style.opacity = "0");
