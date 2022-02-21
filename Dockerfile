@@ -17,7 +17,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     gtk+3.0 \
     ffmpeg xvidcore opus libogg libvorbis libtheora \
     wqy-zenhei nodejs npm \
-    ca-certificates libxss1 \
+    ca-certificates \
 #    tini make gcc g++ python3 \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
     pulseaudio-alsa pulseaudio pulseaudio-utils alsa-plugins-pulse \
