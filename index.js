@@ -4,7 +4,7 @@ const child_process = require('child_process');
 const Xvfb = require('xvfb');
 
 // Generate randome display port number to avoide xvfb failure
-var disp_num = Math.floor(Math.random() * (200 - 99) + 99);
+var disp_num = Math.floor(Math.random() * 100 + 99);
 var xvfb = new Xvfb({
     displayNum: disp_num,
     silent: true,
