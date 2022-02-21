@@ -15,9 +15,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
     ttf-freefont \
     font-noto-emoji \
     gtk+3.0 \
-    ffmpeg \
+    ffmpeg xvidcore opus libogg libvorbis libtheora \
     wqy-zenhei nodejs npm \
-    ca-certificates \
+    ca-certificates libxss1 \
 #    tini make gcc g++ python3 \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
     pulseaudio-alsa pulseaudio pulseaudio-utils alsa-plugins-pulse \
