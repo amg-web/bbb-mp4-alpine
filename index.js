@@ -116,6 +116,7 @@ async function main() {
         });
 
         await page.waitForTimeout((duration * 1000));
+        await browser.close();
     } catch (err) {
         console.log(err);
     } finally {
