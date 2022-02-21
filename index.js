@@ -18,7 +18,7 @@ var options = {
         '--no-sandbox',
         '--disable-dev-shm-usage',
         '--start-fullscreen',
-//        '--app=https://www.google.com/',
+        '--app=about:blank',
         `--window-size=1280,800`,
     ],
 }
