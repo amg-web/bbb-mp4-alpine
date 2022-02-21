@@ -28,8 +28,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
 RUN addgroup root audio
 #addgroup $USER audio
 
-COPY --from=mwader/static-ffmpeg:5.0 /ffmpeg /usr/local/bin/
-COPY --from=mwader/static-ffmpeg:5.0 /ffprobe /usr/local/bin/
+# COPY --from=mwader/static-ffmpeg:5.0 /ffmpeg /usr/local/bin/
+# COPY --from=mwader/static-ffmpeg:5.0 /ffprobe /usr/local/bin/
 
 COPY local.conf /etc/fonts/local.conf
 
