@@ -31,7 +31,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" > /etc/apk/reposito
     ffmpeg \
     wqy-zenhei nodejs npm \
     ca-certificates \
-    tini make gcc g++ python3 \
+#    tini make gcc g++ python3 \
     alsa-utils alsa-lib alsaconf alsa-ucm-conf \
     pulseaudio-alsa pulseaudio pulseaudio-utils alsa-plugins-pulse \
     && rm -rf /var/cache/* \
@@ -50,12 +50,9 @@ WORKDIR /usr/src/app
 ENV CHROME_BIN=/usr/bin/chromium-browser \
     CHROME_PATH=/usr/lib/chromium/
 
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD 1
-ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium-browser
 WORKDIR /usr/src/app
 #copy all files from bbb-mp4 project
 COPY manifest.json index.js *.sh ./
-#COPY package.json package-lock.json ./
 
 # Install npm scripts puppeteer@13.1.0 for chromium 98
 # https://github.com/puppeteer/puppeteer/blob/main/docs/api.md
